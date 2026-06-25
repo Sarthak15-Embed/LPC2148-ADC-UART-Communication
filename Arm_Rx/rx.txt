@@ -1,0 +1,39 @@
+#include"config.h"
+#include <xc.h>
+#include"Usart.h"
+#include "Lcd_8bit.h"
+//#include"ADC.h"
+void Received(int*,int); 
+unsigned int Adc_value;
+int main()
+{
+   unsigned int Rx_data[4];
+   USART_Init();
+   //Adc_Init();
+   lcd_init();
+   lcd_cmd(0x80);
+   lcd_str("Adc_Receive:");
+	while(1)
+    {
+      Received(Rx_data,4);
+      lcd_cmd(0xC0);
+    // Adc_display(Adc_value); 
+     lcd_data(Rx_data[0]);  
+     lcd_data(Rx_data[1]);// display on LCD
+     lcd_data(Rx_data[2]);
+     lcd_data(Rx_data[3]);   
+	}
+}
+void Received(int *ptr,int length)
+{
+	int i;
+	char temp=USART_Rx();
+	if(temp==':')
+	{
+	for(i=0;i<length;i++)
+	*(ptr+i)=USART_Rx();
+	}
+}
+
+
+

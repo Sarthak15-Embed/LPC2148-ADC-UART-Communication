@@ -1,0 +1,11 @@
+--cpu ARM7TDMI
+".\objects\startup.o"
+".\objects\arm_adc_rx.o"
+".\objects\arm_lcd.o"
+".\objects\arm_pll.o"
+".\objects\arm_uart.o"
+".\objects\delay.o"
+--strict --scatter ".\Objects\Arm_Adc_Rx.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Arm_Adc_Rx.map" -o .\Objects\Arm_Adc_Rx.axf
