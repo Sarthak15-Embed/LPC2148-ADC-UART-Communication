@@ -93,13 +93,8 @@ UART0    16×2 LCD
 LPC2148-ADC-UART
 │
 ├── README.md
-├── main.c
-├── Arm_ADC.c
-├── Arm_ADC.h
-├── Arm_UART.c
-├── Arm_UART.h
-├── Arm_LCD.c
-└── Arm_LCD.h
+├── Arm_Tx
+├── Arm_Rx
 ```
 
 ---
